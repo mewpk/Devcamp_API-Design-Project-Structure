@@ -2,25 +2,25 @@ import React, { useEffect, useState } from 'react'
 
 export default function Form() {
 
-  const [data,setData] = useState(null)
+  const [data, setData] = useState(null)
 
- 
-  
+
+
   useEffect()
-  const sendData = ()=>{
+  const sendData = () => {
     setData(
-      { 
-        
-        data : {
-          Firstname : document.querySelectorAll("input")[0].value
+      {
+
+        data: {
+          Firstname: document.querySelectorAll("input")[0].value
         }
       }
-     
+
     )
   }
 
 
-  
+
 
 
   return (
@@ -83,11 +83,11 @@ export default function Form() {
             <td><p >Job title : </p></td>
             <td><input type="text" /></td>
           </tr>
-          
+
         </tbody>
       </table>
       <button onClick={sendData}>Submit!</button>
-      
+
 
     </>
   )
