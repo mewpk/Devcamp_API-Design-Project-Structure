@@ -2,6 +2,26 @@ import React, { useEffect, useState } from 'react'
 
 export default function Form() {
 
+  const [data,setData] = useState(null)
+
+ 
+  
+  useEffect()
+  const sendData = ()=>{
+    setData(
+      { 
+        
+        data : {
+          Firstname : document.querySelectorAll("input")[0].value
+        }
+      }
+     
+    )
+  }
+
+
+  
+
 
   return (
     <>
@@ -66,6 +86,8 @@ export default function Form() {
           
         </tbody>
       </table>
+      <button onClick={sendData}>Submit!</button>
+      
 
     </>
   )
