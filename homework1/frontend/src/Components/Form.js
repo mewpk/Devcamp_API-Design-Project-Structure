@@ -10,8 +10,13 @@ export default function Form() {
 
     if (dataEmploy != null) {
       const asy = async ()=>{
-        const sendData = await axios.post("http://localhost:3000/employee",dataEmploy)
-        console.log(dataEmploy,sendData)
+        try {
+          const sendData = await axios.post("http://localhost:3000/employee",dataEmploy)
+        console.log(sendData)
+        } catch (error) {
+          console.log(error);
+        }
+        
       }
      asy()
      
