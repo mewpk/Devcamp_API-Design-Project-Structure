@@ -8,7 +8,7 @@ export default function Form() {
 
   useEffect(() => {
 
-    if (dataEmploy != null) {
+    if (!dataEmploy) {
       const asy = async ()=>{
         try {
           const sendData = await axios.post("http://localhost:3000/employee",dataEmploy)
