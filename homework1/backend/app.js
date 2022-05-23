@@ -30,7 +30,7 @@ app.post("/employee", async (req, res) => {
         
 
         );
-        console.log(error);
+        
         await connection.end();
     } catch (error) {
         res.status(400)
@@ -42,8 +42,31 @@ app.post("/employee", async (req, res) => {
 })
 
 app.post("/company", async (req, res) => {
-    res.status(201).send("Created !")
-    console.log(req.body);
+    const connection = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root', // <== ระบุใหถูกตอง
+        password: '1234', // <== ระบุใหถูกตอง
+        database: 'day19', // <== ระบุ database ใหถูกตอง
+        port: 3306, // <== ใส port ใหถูกตอง (default 3306, MAMP ใช 8889)
+    })
+    try {
+        const dataUsers = await req.body.data
+        const data = await connection.query(`insert into company (CompanyName, CompanyAddress,Period, JobTitle,IdCardNumber) value ("${dataUsers.CompanyName}","${dataUsers.CompanyAddress}","${dataUsers.Period}","${dataUsers.JobTitle}","${dataUsers.IdCardNumber}")`);
+        res.json({
+            status: "success",
+            data: data
+        }
+        
+
+        );
+        
+        await connection.end();
+    } catch (error) {
+        res.status(400)
+        res.json(error);
+        console.log(error);
+    }
+
 })
 
 app.listen(3000, () => {
