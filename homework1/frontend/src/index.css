@@ -21,4 +21,7 @@ table{
 button{
   margin: 10px 10px;
   font-size: 20px;
+  text-align: center;
+  
+  align-items: center;
 }
