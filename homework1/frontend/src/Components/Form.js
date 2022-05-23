@@ -23,8 +23,13 @@ export default function Form() {
 
     if (dataCompany != null) {
       const asy = async ()=>{
-        const sendData = await axios.post("http://localhost:3000/company",dataCompany)
-        console.log(dataCompany,sendData)
+        try {
+          const sendData = await axios.post("http://localhost:3000/company",dataCompany)
+          console.log(sendData)
+        } catch (error) {
+          console.log(error)
+        }
+       
       }
      asy()
      
